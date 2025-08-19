@@ -23,7 +23,7 @@ default: &default
 development:
   primary: &primary_development
     <<: *default
-    database: rails_8_template_development
+    database: my_contact_book
     
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
