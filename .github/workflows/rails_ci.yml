@@ -30,6 +30,8 @@ jobs:
           bundler-cache: true
       - name: Set up database schema
         run: bin/rails db:schema:load
+      - name: Run rake database checks
+        run: bundle exec rake db:abort_if_pending_migrations
       # This runs the tests in the spec/ folder
       - name: Run rspec tests
         run: bundle exec rspec
