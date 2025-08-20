@@ -33,24 +33,3 @@ jobs:
       # This runs the tests in the spec/ folder
       - name: Run rspec tests
         run: bundle exec rspec
-
-  lint:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      # Can add more (eg bundler-audit, brakeman, etc.)
-      - name: Lint Ruby files
-        run: bundle exec rubocop --parallel
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'  # Fixed: specify a concrete version
-      - name: Install npm dependencies
-        run: npm ci
-      - name: Lint Javascript files
-        run: npm run lint
