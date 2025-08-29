@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_13_202311) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_21_220910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "contacts", id: :serial, force: :cascade do |t|
+    t.text "first_name"
+    t.text "last_name"
+    t.date "date_of_birth"
+    t.text "street_address_1"
+    t.text "street_address_2"
+    t.text "city"
+    t.text "state"
+    t.text "zip"
+    t.text "phone"
+    t.text "notes"
+    t.timestamptz "created_at", default: -> { "CURRENT_TIMESTAMP" }
+    t.string "username"
+  end
 
   create_table "solid_cable_messages", force: :cascade do |t|
     t.binary "channel", null: false
